@@ -1,0 +1,104 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About_film</title>
+    <link rel="stylesheet" href="{% static 'style_base.css' %}">
+    <link rel="stylesheet" href="{% static 'style_about_films.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous">
+
+</head>
+<body>
+     <header>
+       <div class="header_container">
+           <nav class="header_nav">
+               <a href="{% url 'index' %}"><button class="header_nav_btn">Main page</button></a>
+               <a href="{% url 'films' %}"><button class="header_nav_btn">Films</button></a>
+               <a href="{% url 'about' %}"><button class="header_nav_btn">About us</button></a>
+               <div class="header_account">
+                   {% if user.is_authenticated %}
+
+                   <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="header_logout" type="submit">Log out</button></form>
+                  <button class="header_profile"><i class="fas fa-user-circle"></i></button>
+                   {% else %}
+                   <a href="{% url 'login' %}"><button class="header_login">Log in</button></a>
+                   <a href="{% url 'signup' %}"><button class="header_signup">Sign up</button></a>
+                   {% endif %}
+               </div>
+           </nav>
+       </div>
+    </header>
+
+     <div class="Intro">
+
+    </div>
+
+     <div class="Main">
+         <div class="Main_info">
+               <div class="main_poster">
+                   <span class="title">{{info.title}}</span>
+                   <span class="slug">{{info.slug}}</span>
+                   <span class="true_likes">{{info.like_count}}</span>
+                   <span class="true_comments">{{info.comment_count}}</span>
+                   <div class="main_poster_img" style="background: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)), url(http://127.0.0.1:8000/media/{{info.poster}}) center no-repeat;background-size: cover;" ></div>
+               </div>
+               <div class="main_func">
+                   <div class="main_indicators">
+                           <div id="ind_save_btn">
+                               <button><i class="fas fa-bookmark"></i></button>
+                           </div>
+                           <div class="ind_like" id="ind_like_btn">
+                               <button><i class="fas fa-heart"></i> <span>{{info.like_count}}</span></button>
+                           </div>
+                          <div class="ind_comment">
+                               <button><i class="fas fa-comment-dots"></i> <span>{{info.comment_count}}</span></button>
+                          </div>
+                          <div class="ind_watch">
+                               <button><i class="far fa-eye"></i> <span>{{info.watch}}</span></button>
+                          </div>
+                          <div class="ind_date">
+                               <span>{{info.date}}</span>
+                          </div>
+                          <div class="ind_zhanre">
+                               <span>{{info.zhanre.title}}</span>
+                          </div>
+                   </div>
+                   <div class="main_watch">
+                        <a href="{% url 'watch_films' info.slug %}"><button><i class="fas fa-play"></i></button></a>
+                   </div>
+
+               </div>
+               <div class="main_nav">
+                    <button class="nav_desc"><i class="fas fa-file"></i></button>
+                    <button class="nav_comment"><i class="fas fa-comment-dots"></i> </button>
+               </div>
+               <div class="main_description">
+                    <div class="main_desc_text"><span>{{info.description}}</span></div>
+               </div>
+               <div class="main_comments">
+                   <div class="cards"></div>
+                   {% if user.is_authenticated %}
+                   <div class="comm_write">
+                       <form id="comm_form_id" method="post">
+                           {% csrf_token %}
+                           <input class="user_ava" value="{{accData.ava}}" style="display: none;">
+                           <input class="user_login" value="{{accData.username}}" style="display: none;">
+                           <input name="film_slug" value="{{info.slug}}" style="display:none;">
+                           <input name="username" value="{{user.username}}" style="display:none;">
+                           <input name="text" class="comm_inp" >
+                           <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                       </form>
+                   </div>
+                   {% else %}
+                   {% endif %}
+               </div>
+
+         </div>
+     </div>
+
+
+
+
+    <script src="{% static 'j_about_films.js' %}"></script>
+</body>
+</html>

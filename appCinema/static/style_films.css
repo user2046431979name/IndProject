@@ -1,0 +1,211 @@
+
+
+.content{
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.content_box{
+    width: 100%;
+    max-width: 1000px;
+    height: 700px;
+    border-radius: 25px;
+    background-color: rgba(50, 50, 50, 0.2);
+    backdrop-filter: blur(10px);
+    margin-top: 5%;
+}
+
+.content_filter{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid white;
+    display: flex;
+}
+
+.content_filter form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 20px;
+    gap: 10px;
+}
+
+.filter_name_inp{
+    border-radius: 20px;
+    border: 0;
+    width: 300px;
+    height: 35px;
+    padding: 10px;
+
+}
+
+.filter_name_btn{
+    width: fit-content;
+    height: 35px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+}
+.filter_name_btn:hover{
+    transition: 0.5s ease;
+    background: white;
+    color: black;
+}
+
+
+.sort_like,.sort_time,.sort_watch{
+    width: fit-content;
+    height: 35px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+}
+
+.sort_like:hover{
+    transition: 0.5s ease;
+    background: white;
+    color: black;
+}
+
+
+.sort_time:hover{
+    transition: 0.5s ease;
+    background: white;
+    color: black;
+}
+.sort_watch:hover{
+    transition: 0.5s ease;
+    background: white;
+    color: black;
+}
+
+.filter_zhanre{
+    width: fit-content;
+    height: 35px;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.filter_zhanre_btn{
+    width: fit-content;
+    height: 35px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+}
+.filter_zhanre_btn:hover{
+    transition: 0.5s ease;
+    background: white;
+    color: black;
+}
+
+.content_films{
+    height: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+
+
+.film_card{
+    width: 150px;
+    height: 250px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.film_background{
+    display: none;
+}
+
+.film_card_info{
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
+
+.film_card_info button{
+    width: fit-content;
+    height: fit-content;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+}
+.card_like{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-left: -6px;
+    border: 0;
+    text-decoration: none;
+}
+
+.card_like span{
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.card_like span:hover{
+    transition: 0.5s ease;
+    color: red;
+}
+
+.card_saveFunc{
+    display: flex;
+    font-size: 25px;
+    border: 0;
+    text-decoration: none;
+}
+.card_saveFunc:hover{
+    transition: 0.5s ease;
+    color: orange;
+}
+
+.film_card_poster{
+    display: flex;
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.film_card_title{
+    word-wrap: break-word;
+    color: white;
+    font-size: 25px;
+    font-family: monospace;
+}
+
+

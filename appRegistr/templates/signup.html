@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style_signup.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="main">
+        <div class="exit">
+            <a href="{% url 'index' %}">
+            <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+        <div class="forms">
+            <form method="post" id="signup_form">
+                <span class="error" style="color:red;display: none;"></span>
+                {% csrf_token %}
+                <input class="email"name="email" placeholder="email" type="email">
+                <input class="username" name="username" placeholder="username">
+                <input class="login" name="login" placeholder="login">
+                <input class="password" name="password" placeholder="password" type="password">
+                <input class="confirm_password" name="confirm_password" placeholder="confirm password">
+
+                <div class="link_login"><span>Are you have account?<a href="{% url 'login' %}">Log in</a></span></div>
+                <button class="signup_btn" type="submit">SIGNUP</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'signup.js' %}"></script>
+</body>
+</html>

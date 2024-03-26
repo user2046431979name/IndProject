@@ -1,0 +1,31 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style_login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="main">
+        <div class="exit">
+            <a href="{% url 'index' %}">
+            <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+        <div class="forms">
+            <form method="post" id="login_form">
+                 <span style="color:red;display: none;">неверное имя пользователя или пароль</span>
+                {% csrf_token %}
+                <input class="username" name="username" placeholder="username" >
+                <input class="password" name="password" placeholder="password" type="password">
+                <div class="link_signup"><span>Are you haven't account?<a href="{% url 'signup' %}">Sign up</a></span></div>
+                <button class="login_btn" type="submit">LOGIN</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'login.js' %}"></script>
+</body>
+</html>

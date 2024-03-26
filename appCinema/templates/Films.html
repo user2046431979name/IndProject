@@ -1,0 +1,79 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Films</title>
+    <link rel="stylesheet" href="{% static 'style_base.css' %}">
+    <link rel="stylesheet" href="{% static 'style_films.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous">
+
+</head>
+<body>
+   <header>
+       <div class="header_container">
+           <nav class="header_nav">
+               <a href="{% url 'index' %}"><button class="header_nav_btn">Main page</button></a>
+               <a href="{% url 'films' %}"><button class="header_nav_btn">Films</button></a>
+               <a href="{% url 'about' %}"><button class="header_nav_btn">About us</button></a>
+               <div class="header_account">
+                   {% if user.is_authenticated %}
+
+                   <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="header_logout" type="submit">Log out</button></form>
+                  <button class="header_profile"><i class="fas fa-user-circle"></i></button>
+                   {% else %}
+                   <a href="{% url 'login' %}"><button class="header_login">Log in</button></a>
+                   <a href="{% url 'signup' %}"><button class="header_signup">Sign up</button></a>
+                   {% endif %}
+               </div>
+           </nav>
+       </div>
+    </header>
+
+    <div class="Intro">
+    </div>
+    <div class="content">
+        <div class="content_box">
+            <div class="content_filter">
+                <form id="search" method="post">
+                    {% csrf_token %}
+                    <input style="display: none;" name="type" value="search_title">
+                    <input type="text" name="title" class="filter_name_inp">
+                    <button class="filter_name_btn" type="submit">search</button>
+                </form>
+                <form id="filters" method="post">
+                    {% csrf_token %}
+                    <button class="sort_like" ><i class="fas fa-heart"></i></button>
+                    <button class="sort_time" ><i class="fas fa-calendar"></i></button>
+                    <button class="sort_watch" ><i class="fas fa-eye"></i></button>
+
+                    <select class="filter_zhanre">
+                        <option></option>
+                    </select>
+                    <input style="display: none;" name="type" value="search_filter">
+                    <input class="change_option_zhanres" name="zhanre" style="display: none;" >
+                    <input class="change_filter" name="filter" style="display: none;" >
+                    <button class="filter_zhanre_btn">search</button>
+                </form>
+            </div>
+            <div class="content_films">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <script src="{% static 'j_films.js' %}"></script>
+</body>
+</html>

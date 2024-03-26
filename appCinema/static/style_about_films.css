@@ -1,0 +1,244 @@
+.Main{
+    width: 100%;
+    height: 150vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.Main_info{
+    width: 100%;
+    max-width: 1000px;
+    height: 900px;
+    border-radius: 20px;
+    margin-top: 75px;
+    background-color: rgba(50, 50, 50, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.main_poster{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.title{
+    font-size: 30px;
+    font-family: monospace;
+}
+.slug{
+    display: none;
+}
+.true_likes{
+    display: none;
+}
+.true_comments{
+    display: none;
+}
+
+.main_poster_img{
+    width: 900px;
+    height: 400px;
+    border-radius: 20px;
+
+}
+
+
+.main_func{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.main_indicators{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+}
+
+.main_indicators button{
+    width: fit-content;
+    height: fit-content;
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.main_indicators button:hover{
+    transition: 0.5s ease;
+    color: black;
+    background: white;
+}
+
+
+
+.main_indicators div{
+    margin-left: 20px;
+}
+.main_indicators span{
+    font-size: 20px;
+}
+
+
+.main_watch{
+    width: 40%;
+    margin-left: 20px;
+}
+
+.main_watch button{
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 15px;
+    color: white;
+    background: black;
+}
+.main_watch button:hover{
+    transition: 0.5s ease;
+    color: black;
+    background: white;
+}
+
+.main_nav{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+}
+.main_nav > button{
+    width: 50%;
+    height: fit-content;
+    background: transparent;
+    color: #fff;
+    font-size: 25px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+.main_nav > button:hover{
+    transition: 0.3s ease;
+    background: rgba(0,0,0,0.5);
+}
+
+.nav_desc{
+    border: 0;
+    border-bottom: 1px solid white;
+}
+.nav_comment{
+    border: 0;
+}
+
+.main_description{
+    padding: 10px;
+    height: 400px;
+    font-family: monospace;
+    font-size: 20px;
+    display: flex;
+}
+
+.main_desc_text{
+    height: 300px;
+    overflow-y: auto;
+
+    word-wrap: break-word;
+}
+
+.main_comments{
+    width: 100%;
+    height: 400px;
+    display: none;
+    flex-direction: column;
+
+}
+.cards{
+    width: 100%;
+    height: 350px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+.comm_card{
+    width: 100%;
+    height: fit-content;
+    background: rgba(50,50,50);
+}
+.comm_card:hover{
+    transition: 0.5s ease;
+    background: rgba(30,30,30);
+}
+
+.comm_info{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+.comm_info_text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+.comm_user{
+     font-size: 15px;
+     font-family: monospace;
+}
+
+.comm_date{
+     font-family: inherit;
+     font-size: 10px;
+}
+.comm_info img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.comm_text{
+    font-size: 20px;
+    font-family: inherit;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+
+.comm_write{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+}
+.comm_write form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.comm_inp{
+    width: 90%;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px;
+}
+.comm_write button{
+    height: 40px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 25px;
+}
+.comm_write button:hover{
+    transition: 0.5s ease;
+    background: white;
+    color: black;
+}

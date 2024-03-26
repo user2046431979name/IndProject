@@ -1,0 +1,76 @@
+body{
+    background: url("images/Fone.jpg") center no-repeat;
+
+}
+
+.main{
+    width: 350px;
+    height: fit-content;
+    background: rgba(200,200,200,0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    margin: 5% auto;
+    padding: 10px;
+}
+.exit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.exit i{
+    font-size: 105px;
+    text-decoration: none;
+    color: black;
+}
+
+.forms{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.forms form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.forms input{
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 80%;
+    background: transparent;
+    color: white;
+    height: fit-content;
+    padding: 5px 15px 0 10px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.login_btn{
+    background: rgba(50,50,50,0.5);
+    border: 0;
+    border-radius: 25px;
+    color: white;
+    font-size: 15px;
+    font-family: monospace;
+    padding: 10px 35% 10px 35%;
+    margin: 30px;
+}
+
+.login_btn:hover{
+    transition: 0.5s ease;
+    background: rgba(0,0,0,1);
+}
+
+.link_signup{
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.link_signup a{
+    color: black;
+}
+

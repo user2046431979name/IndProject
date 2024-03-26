@@ -1,0 +1,131 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style_profile.css' %}">
+    <link rel="stylesheet" href="{% static 'style_base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous">
+
+</head>
+<body>
+    <header>
+       <div class="header_container">
+           <nav class="header_nav">
+               <a href="{% url 'index' %}"><button class="header_nav_btn">Main page</button></a>
+               <a href="{% url 'films' %}"><button class="header_nav_btn">Films</button></a>
+               <a href="{% url 'about' %}"><button class="header_nav_btn">About us</button></a>
+               <div class="header_account">
+                   {% if user.is_authenticated %}
+
+                   <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="header_logout" type="submit">Log out</button></form>
+                  <button class="header_profile"><i class="fas fa-user-circle"></i></button>
+                   {% else %}
+                   <a href="{% url 'login' %}"><button class="header_login">Log in</button></a>
+                   <a href="{% url 'signup' %}"><button class="header_signup">Sign up</button></a>
+                   {% endif %}
+               </div>
+           </nav>
+       </div>
+    </header>
+    <div class="Intro">
+    </div>
+    <div class="Main">
+        <div class="container">
+            <div class="info_film">
+                <div class="film_nav">
+                     <button class="nav_save"><i class="fas fa-bookmark"></i></button>
+                     <button class="nav_like"><i class="fas fa-heart"></i></button>
+                     <button class="nav_comment"><i class="fas fa-comment-dots"></i></button>
+                </div>
+                <div class="saves_film">
+                    <div class="cards">
+<!--                           <div class="card">-->
+<!--                               <a href="#">-->
+<!--                                   <div class="card_info">-->
+<!--                                       <img src="{% static 'image/Fone.jpg' %}">-->
+<!--                                       <span>Orion</span>-->
+<!--                                   </div>-->
+<!--                               </a>-->
+<!--                                       <div class="card_delete">-->
+<!--                                           <i class="fas fa-trash"></i>-->
+<!--                                       </div>-->
+<!--                           </div>-->
+                   </div>
+                </div>
+                <div class="likes_film">
+                    <div class="cards">
+
+                    </div>
+                </div>
+                <div class="comments_link">
+                    <div class="cards">
+<!--                         <div class="comm_card">-->
+<!--                             <a href="#">-->
+<!--                                 <div class="comment_info">-->
+<!--                                     <img src="{% static 'image/Fone.jpg' %}">-->
+<!--                                     <span class="info_title">Orion</span>-->
+<!--                                     <span class="info_data">2023-02-12</span>-->
+<!--                                 </div>-->
+<!--                                     <div class="delete_comment">-->
+<!--                                         <i class="fas fa-trash"></i>-->
+<!--                                     </div>-->
+<!--                             </a>-->
+<!--                                <div class="comment_text">&ndash;&gt;-->
+<!--                                     <button class="comm_full_text">развернуть</button>&ndash;&gt;-->
+<!--                                     <div class="comm_text"><span>This film perfect: plot 10/10 errrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrg&ndash;&gt;-->
+<!--                                     sgeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer&ndash;&gt;-->
+<!--                                     rgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggs&ndash;&gt;-->
+<!--                                     sgeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&ndash;&gt;-->
+<!--                                     hsrrrrrrrtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt&ndash;&gt;</span>-->
+<!--                                     </div>&ndash;&gt;-->
+<!--                                     <button class="comm_short_text">скрыть</button>&ndash;&gt;-->
+
+<!--                                 </div>&ndash;&gt;-->
+
+<!--                         </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="info_user">
+                <div class="user_ava">
+                     <img src="{{ava}}">
+                </div>
+                <div class="user_info">
+                     <div class="username"><span>{{info.username}}</span></div>
+                     <div class="data_user">
+                         <span>дата создания : {{info.date}}</span>
+                         <span>почта : {{user.email}}</span>
+                         <span>имя пользователя : {{user.username}}</span>
+                     </div>
+                    <div class="data_update">
+                         <button class="update_btn">
+                             Изменить данные
+                         </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Modal">
+        <div class="modal_change_user">
+             <div class="change_exit"><i class="fas fa-times"></i></div>
+            <div class="change_form">
+            <form id="form" method="post">
+                 {% csrf_token %}
+                 <input class="c_ava" type="file" name="new_ava">
+                 <input class="c_username" placeholder="username" name="new_username">
+                 <input class="c_login" placeholder="login" name="new_login">
+                 <input class="c_password" type="password" placeholder="password" name="password">
+                 <button type="submit">SEND</button>
+             </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'j_profile.js' %}"></script>
+</body>
+</html>

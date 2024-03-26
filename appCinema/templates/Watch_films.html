@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch_films</title>
+    <link rel="stylesheet" href="{% static 'style_base.css' %}">
+    <link rel="stylesheet" href="{% static 'style_watch_films.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <header>
+       <div class="header_container">
+           <nav class="header_nav">
+               <a href="{% url 'index' %}"><button class="header_nav_btn">Main page</button></a>
+               <a href="{% url 'films' %}"><button class="header_nav_btn">Films</button></a>
+               <a href="{% url 'about' %}"><button class="header_nav_btn">About us</button></a>
+               <div class="header_account">
+                   {% if user.is_authenticated %}
+
+                   <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="header_logout" type="submit">Log out</button></form>
+                  <button class="header_profile"><i class="fas fa-user-circle"></i></button>
+                   {% else %}
+                   <a href="{% url 'login' %}"><button class="header_login">Log in</button></a>
+                   <a href="{% url 'signup' %}"><button class="header_signup">Sign up</button></a>
+                   {% endif %}
+               </div>
+           </nav>
+       </div>
+    </header>
+
+    <div class="Intro">
+    </div>
+
+    <div class="Main">
+        <div class="main_box">
+
+        <div class="title">
+            <a href="{% url 'about_films' info.film.slug %}"><button><i class="fas fa-arrow-left"></i></button></a>
+            {{ info.film.title }}
+        </div>
+
+        <div class="main_video">
+            <video controls>
+                <source src="{{ info.video.url }}">
+            </video>
+        </div>
+        </div>
+    </div>
+
+</body>
+</html>

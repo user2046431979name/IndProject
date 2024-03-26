@@ -1,0 +1,60 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style_base.css' %}">
+    <link rel="stylesheet" href="{% static 'style_base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous">
+
+</head>
+<body>
+    <header>
+       <div class="header_container">
+           <nav class="header_nav">
+               <a href="{% url 'index' %}"><button class="header_nav_btn">Main page</button></a>
+               <a href="{% url 'films' %}"><button class="header_nav_btn">Films</button></a>
+               <a href="{% url 'about' %}"><button class="header_nav_btn">About us</button></a>
+               <div class="header_account">
+                   {% if user.is_authenticated %}
+
+                   <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="header_logout" type="submit">Log out</button></form>
+                  <button class="header_profile"><i class="fas fa-user-circle"></i></button>
+                   {% else %}
+                   <a href="{% url 'login' %}"><button class="header_login">Log in</button></a>
+                   <a href="{% url 'signup' %}"><button class="header_signup">Sign up</button></a>
+                   {% endif %}
+               </div>
+           </nav>
+       </div>
+    </header>
+    <div class="Intro">
+    </div>
+
+    <div class="Main">
+
+    </div>
+
+    <div class="Footer" id="footer">
+        <div class="footer_box">
+            <div class="footer_top">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+            <div class="footer_center">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'films' %}">Films</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'profile' %}">Cabinet</a>
+            </div>
+            <div class="footer_bottom">
+                <span>Copyright 2024 &copy;: Designed by  <h2>AIDAR</h2></span>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'j_about_us.js' %}"></script>
+</body>
+</html>
